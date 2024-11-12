@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>ClockWork</title>
+  </head>
+  
+  <body> 
+    <header class="nav-header">
+        <nav class="nav-bar">
+            <ul class="nav-ul">
+              {% if session.get("username") %}
+                {% if session.get("role") == "Manager" %}<li class="nav-list"><a href="{{ url_for('manager_dashboard') }}">Management</a></li>{% endif %}
+                <li class="nav-list"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li class="nav-list"><a href="{{ url_for('logout') }}">logout</a></li>
+              {% else %}
+                <li class="nav-list"><a href="{{ url_for('login') }}">Log in</a></li>
+                <li class="nav-list"><a href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-list"><a href="{{ url_for('register') }}">Register</a></li>
+              {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% block section %}
+    <section class="section-style">
+        <div class="section-content"></div>
+    </section>
+    
+    {% endblock section %}
+    <footer class="footer">
+      <p class="footer-p">&copy; Daniel All Rights Reserved</p>
+    </footer>
+  </body>
+ 
+</html>

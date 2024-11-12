@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block section %}
+<main class="main-section">
+    <div class="center-div">
+        <h1 class="header-center-div">Welcome to ClockWork!</h1>
+        <p class="paragraph-center-div">ClockWork is an environment where you can register employees for your small business.</p>
+    </div>
+    <div class="div-btn">
+        <a href="{{ url_for('login') }}">Log In</a>
+        <br>
+        <br>
+        <a href="{{ url_for('register') }}">Register</a>
+    </div>
+</main>
+{% endblock section %}
